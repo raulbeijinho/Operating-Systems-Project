@@ -1,0 +1,3 @@
+ls
+
+echo "Olá mundo"
