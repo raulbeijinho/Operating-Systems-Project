@@ -1,8 +1,3 @@
-read nome
-read nome2
-
-if [[ "$nome" == "$nome2" ]]; then 
-    echo "são iguais"
-else 
-    echo "são diferentes"
-fi
+for ((i = 0 ; i <= 57 ; i++)); do
+    echo "$1"
+done
