@@ -1,3 +1,5 @@
-ls
+echo "Hello World!" 
 
-echo "Olá mundo"
+s="Hello World 2!"
+    
+echo $s
