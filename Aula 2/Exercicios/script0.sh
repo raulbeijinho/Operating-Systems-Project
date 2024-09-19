@@ -1,5 +1,8 @@
-echo "Hello World!" 
+read nome
+read nome2
 
-s="Hello World 2!"
-    
-echo $s
+if [[ "$nome" == "$nome2" ]]; then 
+    echo "são iguais"
+else 
+    echo "são diferentes"
+fi
