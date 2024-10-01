@@ -15,13 +15,13 @@ int main(int argc, char *argv[]) {
     
     int fd = open(pipe_name, O_WRONLY);
     if (fd == -1) {
-        perror("Erro ao abrir o named pipe");
+        perror("Erro ao abrir o named pipe\n");
         return 1;
     }
 
     const char *pedido = argv[1];
     if (write(fd, pedido, strlen(pedido)) == -1) {
-        perror("Erro ao escrever no pipe");
+        perror("Erro ao escrever no pipe\n");
         close(fd);
         return 1;
     }
