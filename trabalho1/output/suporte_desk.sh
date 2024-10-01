@@ -1,16 +1,16 @@
 PIPE_NAME="/tmp/suporte"
 
-if [[ ! -p $PIPE_NAME ]]; then
 mkfifo $PIPE_NAME
-fi
 
 for i in {1..3}; do
  
- ./student "pedido $i"
+ ./main "pedido $i"
+ 
+ echo "pedido $i feito$"
 
 done
 
-./student_agente.sh 
+./suporte_agente.sh
 
 sleep 1
 

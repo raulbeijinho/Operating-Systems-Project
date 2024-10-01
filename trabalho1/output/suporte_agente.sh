@@ -1,6 +1,8 @@
+PIPE_NAME="/tmp/suporte"
 
 if [[ ! -p $PIPE_NAME ]]; then
-exit 1;
+    echo "Pipe $PIPE_NAME não existe. Encerrando."
+    exit 1
 fi
 
 while true; do
@@ -10,8 +12,6 @@ while true; do
     if [[ $pedido == "quit" ]]; then
         break
     fi
-
-    echo "A tratar pedido: $pedido"
 
     sleep 1
 
