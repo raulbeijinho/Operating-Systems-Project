@@ -24,9 +24,7 @@ void inscrever_cadeiras(void) {
     
     pthread_mutex_lock(&mutexxx);
     for (int i = 0; i < N_DISCIPLINAS; i++) {
-       
-        disciplinas[i] += 1;
-        
+       disciplinas[i] += 1;
     }
     pthread_mutex_unlock(&mutexxx);
 
@@ -38,11 +36,11 @@ void inscrever_cadeiras(void) {
  * @return void
  */
 void *producer(void *data) {
+    
     int no_inscricoes = *((int*)data);
     
     for (int i = 0; i < no_inscricoes; i++) {
         inscrever_cadeiras();
-        
     }
     return NULL;
 
