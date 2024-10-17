@@ -10,7 +10,7 @@
 #include <pthread.h>
 #define N_DISCIPLINAS 3
 #define N_SECRETARIOS 10
-#define N_INSC_PER_PRODUCER 5
+#define N_INSC_PER_PRODUCER 500000
 //
 
 // Memória global para as disciplinas
@@ -21,11 +21,15 @@ pthread_mutex_t mutexxx;
  * @return void
  */
 void inscrever_cadeiras(void) {
+    
+    pthread_mutex_lock(&mutexxx);
     for (int i = 0; i < N_DISCIPLINAS; i++) {
-        pthread_mutex_lock(&mutexxx);
+       
         disciplinas[i] += 1;
-        pthread_mutex_unlock(&mutexxx);
+        
     }
+    pthread_mutex_unlock(&mutexxx);
+
 }
 
 /**
@@ -38,7 +42,7 @@ void *producer(void *data) {
     
     for (int i = 0; i < no_inscricoes; i++) {
         inscrever_cadeiras();
-        sleep(1);
+        
     }
     return NULL;
 
