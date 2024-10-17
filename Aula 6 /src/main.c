@@ -11,18 +11,20 @@
 #define N_DISCIPLINAS 3
 #define N_SECRETARIOS 10
 #define N_INSC_PER_PRODUCER 5
-
+//
 
 // Memória global para as disciplinas
 long disciplinas[N_DISCIPLINAS];
-
+pthread_mutex_t mutexxx;
 /**
  * @brief Esta função inscreve um aluno em N_DISCIPLINAS
  * @return void
  */
 void inscrever_cadeiras(void) {
     for (int i = 0; i < N_DISCIPLINAS; i++) {
+        pthread_mutex_lock(&mutexxx);
         disciplinas[i] += 1;
+        pthread_mutex_unlock(&mutexxx);
     }
 }
 
@@ -46,6 +48,7 @@ int main(int argc, char const *argv[]) {
     int insc_per_producer = N_INSC_PER_PRODUCER;
     struct timespec start_time, end_time;
     pthread_t th_id[10];
+    pthread_mutex_init(&mutexxx, NULL);
 
     // Verifica se há mais de 2 argumentos
     if (argc >= 2) {
