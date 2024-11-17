@@ -1,7 +1,7 @@
 # Criar um named pipe com o nome /tmp/suporte
 
-if [[ ! -p /tmp/support_pipe ]]; then
-    mkfifo /tmp/support_pipe
+if [[ ! -p /tmp/suporte ]]; then
+    mkfifo /tmp/suporte
 fi
 
 # Obter os números máximos de alunos NALUN, disciplinas NDISCIP e lugares NLUG por sala como argumentos passados na execução do scrpt
@@ -23,14 +23,19 @@ NHOR=$(( (NALUN + LUGARES_POR_DISCIPLINA - 1) / LUGARES_POR_DISCIPLINA ))
 
 # Executar 1 suport_agent em background passando como argumento NALUN
 
-./suport_agent $NALUN &
+./trabalho2agent/output/suport_agent $NALUN &
 
 # 5 
 
 ALUNOS_POR_STUDENT=$((NALUN / NSTUD))
 
-./student $i $ALUNOS_POR_STUDENT
+for (( i = 1; i <= NSTUD; i++ )); do
+    
+    ALUNO_INICIAL=$(( (i - 1) * ALUNOS_POR_STUDENT + 1 ))
+    
+    ./trabalho2student/output/student $NSTUD $ALUNO_INICIAL $ALUNOS_POR_STUDENT 
 
+done
 # esperar
 
 wait
