@@ -72,7 +72,7 @@ int main(int argc, char const *argv[])
     strcat (buf, " ");
     strcat (buf, argv[2]);
     strcat (buf, " ");
-    strcat (buf, argv[1]);
+    strcat (buf, nome_pipe_resposta);
     strcat (buf, " ");
     strcat (buf, "\n");
     
