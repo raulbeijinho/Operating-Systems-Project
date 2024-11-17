@@ -55,6 +55,7 @@ int main(int argc, char const *argv[])
     le_pipe (fd, msg1, sizeof(msg1));
     printf ("Recebi: %s\n", msg1);
     dados = atoi(msg1);
+    //for(5threads) create threads
     preenche_vagas(&dados);
 
 
