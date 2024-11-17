@@ -1,0 +1,9 @@
+{
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/home/aluno/SO/SO2024-25-5a-10h00-5/trabalho2/trabalho2 student/output",
+            "binaryPath": "/home/aluno/SO/SO2024-25-5a-10h00-5/trabalho2/trabalho2 student/output/main",
+            "binaryArgs": []
+        }
+    ]
+}
