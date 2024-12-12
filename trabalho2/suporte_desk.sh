@@ -23,7 +23,7 @@ NHOR=$(( (NALUN + LUGARES_POR_DISCIPLINA - 1) / LUGARES_POR_DISCIPLINA ))
 
 # Executar 1 suport_agent em background passando como argumento NALUN
 
-./trabalho2agent/output/suport_agent $NALUN &
+./trabalho2agent/output/main $NALUN &
 
 # 5 
 
@@ -33,7 +33,7 @@ for (( i = 1; i <= NSTUD; i++ )); do
     
     ALUNO_INICIAL=$(( (i - 1) * ALUNOS_POR_STUDENT + 1 ))
     
-    ./trabalho2student/output/student $NSTUD $ALUNO_INICIAL $ALUNOS_POR_STUDENT 
+    ./trabalho2student/output/main $NSTUD $ALUNO_INICIAL $ALUNOS_POR_STUDENT 
 
 done
 # esperar

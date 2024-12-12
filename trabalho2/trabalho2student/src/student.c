@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
-
 #define BSIZE 80
 #define NOMEFIFO "/tmp/suporte"
 
@@ -49,12 +48,13 @@ int main(int argc, char const *argv[])
 
     printf("student %d: aluno inicial=%d, número de alunos=%d\n", nstud, aluno_inicial, num_alunos);
     
-    strcpy(nome_pipe_resposta, "/tmp/student_%d", nstud);
+    sprintf(nome_pipe_resposta, "/tmp/student_%d", nstud);
 
     if (mkfifo(nome_pipe_resposta, 0666) < 0)
     {
         perror("mkfifo");
         printf ("Fifo ja existe\n"); 
+        
         exit(1);
     } 
     

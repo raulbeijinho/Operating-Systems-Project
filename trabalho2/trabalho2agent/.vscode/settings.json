@@ -4,6 +4,11 @@
             "cwd": "/home/aluno/SO/SO2024-25-5a-10h00-5/trabalho2/trabalho2 agent/output",
             "binaryPath": "/home/aluno/SO/SO2024-25-5a-10h00-5/trabalho2/trabalho2 agent/output/main",
             "binaryArgs": []
+        },
+        {
+            "cwd": "/home/aluno/SO/SO2024-25-5a-10h00-5/trabalho2/trabalho2agent/output",
+            "binaryPath": "/home/aluno/SO/SO2024-25-5a-10h00-5/trabalho2/trabalho2agent/output/main",
+            "binaryArgs": []
         }
     ]
 }
