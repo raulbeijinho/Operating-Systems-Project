@@ -66,7 +66,7 @@ int main(int argc, char const *argv[])
         perror("open");
         exit(1);
     }
-    printf("pipe aberto\n");
+   
     
     strcpy (buf, argv[3]);
     strcat (buf, " ");
