@@ -16,7 +16,9 @@ int vagas = 100;
 void* preenche_vagas(void * p)
 {
     int *preenche = (int*) p;
+    //mutex_lock
     vagas = vagas - (*preenche);
+    //mutex_unlock
 }
 
 int le_pipe (int fd, char *msg_in, int bsize)
@@ -55,6 +57,7 @@ int main(int argc, char const *argv[])
     le_pipe (fd, msg1, sizeof(msg1));
     printf ("Recebi: %s\n", msg1);
     dados = atoi(msg1);
+    //for(5)... pthread_create
     preenche_vagas(&dados);
 
 

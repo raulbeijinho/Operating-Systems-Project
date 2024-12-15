@@ -8,7 +8,7 @@
 #define BSIZE 80
 #define NOMEFIFO "/tmp/suporte"
 
-char msg1[BSIZE] = "teste 1";
+char msg1[BSIZE] = "7";
 
 int fd;
 pid_t pid;
@@ -28,7 +28,7 @@ int main(int argc, char const *argv[])
     strcat(msg1, "\n");
     write (fd, msg1, sizeof(msg1));
 
-    sleep(1);
+    sleep(1); // preciso para trab 2
     close(fd);
     return 0;
 }

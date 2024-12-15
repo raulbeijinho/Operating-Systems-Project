@@ -1,0 +1,9 @@
+{
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/home/dtms/SO2024-25-Docentes/Aula11/output",
+            "binaryPath": "/home/dtms/SO2024-25-Docentes/Aula11/output/main",
+            "binaryArgs": []
+        }
+    ]
+}
