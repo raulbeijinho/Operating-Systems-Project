@@ -4,22 +4,20 @@ if [[ ! -p /tmp/suporte ]]; then
     mkfifo /tmp/suporte
 fi
 
+#criar pipe admin
+
+if [[ ! -p /tmp/admin ]]; then
+    mkfifo /tmp/admin
+fi
+
 # Obter os números máximos de alunos NALUN, disciplinas NDISCIP e lugares NLUG por sala como argumentos passados na execução do scrpt
 
-if [ $# -ne 4 ]; then
+if [ $# -ne 2 ]; then
     exit 1
 fi
 
 NALUN=$1      
-NDISCIP=$2    
-NLUG=$3
-NSTUD=$4
-
-# Com base em NALUN, NDISCIP e NLUG, calcular o número máximo de horários NHOR 
-
-LUGARES_POR_DISCIPLINA=$((NDISCIP * NLUG))
-
-NHOR=$(( (NALUN + LUGARES_POR_DISCIPLINA - 1) / LUGARES_POR_DISCIPLINA ))
+NSTUD=$2
 
 # Executar 1 suport_agent em background passando como argumento NALUN
 
@@ -43,3 +41,11 @@ wait
 # remover o pipe
 
 rm /tmp/suporte
+
+rm /tmp/admin
+
+for ((i = 1; i <= NSTUD; i++)); do
+
+rm /tmp/student_$i
+
+done

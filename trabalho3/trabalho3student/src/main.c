@@ -73,12 +73,12 @@ int main(int argc, char const *argv[])
         exit(1);
     }
    
-    // Enviar uma mensagem para o support_agent para cada disciplina de cada aluno
-    for (int i = 0; i < num_alunos; i++)  // Para cada aluno
+    
+    for (int i = 0; i < num_alunos; i++)  
     {
-        for (int j = 0; j < 5; j++)  // Para cada uma das 5 disciplinas
+        for (int j = 0; j < 5; j++) 
         {
-            snprintf(buf, BSIZE, "%d,%d,%s\n", aluno_inicial + i, j, nome_pipe_resposta);  // Envia a inscrição
+            snprintf(buf, BSIZE, "%d,%d,%s\n", aluno_inicial + i, j, nome_pipe_resposta);  
             if (write(fd, buf, strlen(buf) + 1) < 0)
             {
                 perror("write");
@@ -99,22 +99,22 @@ int main(int argc, char const *argv[])
 
     printf("pipe aberto\n");
 
-    int horarios[5];  // Para armazenar os horários de cada disciplina de um aluno
+    int horarios[5];  
 
-    for (int i = 0; i < num_alunos; i++)  // Para cada aluno
+    for (int i = 0; i < num_alunos; i++)  
     {
-        // Limpar o array de horários
-        memset(horarios, -1, sizeof(horarios));  // Inicializa com -1, para indicar não inscrito
+        
+        memset(horarios, -1, sizeof(horarios));  
 
-        for (int j = 0; j < 5; j++)  // Para cada disciplina
+        for (int j = 0; j < 5; j++)  
         {
-            le_pipe(fd_resposta, resposta, sizeof(resposta));  // Receber resposta
-            int horario = atoi(resposta);  // Conversão para inteiro
-            horarios[j] = horario;  // Armazenar o horário de inscrição
+            le_pipe(fd_resposta, resposta, sizeof(resposta));  
+            int horario = atoi(resposta);  
+            horarios[j] = horario;  
 
         }
 
-        // Imprimir o status completo do aluno com as 5 disciplinas e horários
+        
         printf("student %d, aluno %d: dis1/%d, dis2/%d, dis3/%d, dis4/%d, dis5/%d\n",
                nstud, aluno_inicial + i, horarios[0], horarios[1], horarios[2], horarios[3], horarios[4]);
     }
