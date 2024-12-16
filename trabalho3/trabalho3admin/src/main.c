@@ -31,36 +31,36 @@ int pedir_horarios(char *resposta)
     int num_aluno_resposta;
     int disciplina, horario;
 
-    // Primeiro, extrair o número do aluno (até a primeira ",")
+    
     if (sscanf(resposta, "%d,", &num_aluno_resposta) != 1)
     {
         fprintf(stderr, "Erro ao ler o número do aluno\n");
         return 1;
     }
 
-    // Exibir o número do aluno
+    
     printf("Aluno %d está inscrito nas seguintes disciplinas e horários:\n", num_aluno_resposta);
 
-    // Processar o restante da resposta (disciplinas e horários)
-    char *ptr = strchr(resposta, ','); // Avançar para depois do número do aluno
+    
+    char *ptr = strchr(resposta, ','); 
     if (ptr != NULL)
     {
-        ptr++; // Pular o ","
+        ptr++; 
     }
 
     while (ptr != NULL)
     {
-        // Usar sscanf para ler cada par disciplina/horário
+        
         if (sscanf(ptr, "%d/%d", &disciplina, &horario) == 2)
         {
             printf("Disciplina: %d, Horário: %d\n", disciplina, horario);
         }
 
-        // Avançar para o próximo par disciplina/horário
-        ptr = strchr(ptr, ','); // Procurar pela próxima vírgula
+        
+        ptr = strchr(ptr, ','); 
         if (ptr != NULL)
         {
-            ptr++; // Pular a vírgula
+            ptr++; 
         }
     }
 
@@ -75,8 +75,8 @@ int main(int argc, char const *argv[])
     char nome_pipe_resposta[BSIZE];
     char buf[BSIZE];
     char const *nome_pipe;
-    char nome_ficheiro[BSIZE];
-
+    char nome_ficheiro[BSIZE] = "trabalho3agent/output/resultados.txt";
+    
     if (argc != 2)
     {
         fprintf(stderr, "%s <admin_id>\n", argv[0]);

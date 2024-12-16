@@ -76,7 +76,7 @@ int gravar_ficheiro(Pedido *msg)
         char linha[BSIZE];
         int offset = 0;
 
-        // Número do aluno
+        
         offset += snprintf(linha + offset, sizeof(linha) - offset, "%d", aluno_id + 1);
 
         for (int i = 0; i < MAX_DISCIPLINAS; i++)
