@@ -1,3 +1,5 @@
 # C Project for Operating Systems
 
-![Project Objective](./project-objective.png)
+<p align="center">
+  <img src="project-objective?raw=true" alt="Project Objective" width="600"/>
+</p>
