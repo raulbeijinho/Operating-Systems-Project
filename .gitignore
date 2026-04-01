@@ -1,3 +1,17 @@
+*
+!.gitignore
+!README.md
+
+!Aula4-Trabalho1/
+!trabalho2/
+!trabalho3/
+
+!Aula4-Trabalho1/**
+!trabalho2/**
+!trabalho3/**
+
+!.vscode/
+
 # Prerequisites
 *.d
 
@@ -22,7 +36,7 @@
 *.la
 *.lo
 
-# Shared objects (inc. Windows DLLs)
+# Shared objects
 *.dll
 *.so
 *.so.*
@@ -50,15 +64,3 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
-
-# Classes Files
-
-.vscode/
-Aula 1/
-Aula 2/
-Aula 9/
-Aula11/
-Aula12/
-Aula3/
-Aula5/
-Aula6/
