@@ -1,3 +1,3 @@
 # C Project for Operating Systems
 
-![Project Objective](./project%20objective.png)
+![Project Objective](./project-objective.png)
